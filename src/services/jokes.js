@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const urlRandom = 'http://api.icndb.com/jokes/random'
+const urlRandom = 'https://api.icndb.com/jokes/random'
 
 
 const getRandom = () => {
