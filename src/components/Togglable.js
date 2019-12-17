@@ -1,34 +1,46 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button'
+import React, { useState, useImperativeHandle } from 'react'
+import Button from './Button'
 
-class Togglable extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      visible: false
+const Togglable = React.forwardRef((props, ref) => {
+  const [visibility, setVisibility] = useState(false)
+  // console.log('visibility', visibility)
+  
+
+  const toggleVisibility = () => {
+    // console.log('visibility pressed')    
+    setVisibility(!visibility)
+  }
+
+  useImperativeHandle(ref, () => {
+    return {
+      toggleVisibility
     }
-  }
+  })
 
-  toggleVisibility = () => {
-    this.setState({visible: !this.state.visible})
-  }
+  const hideWhenVisible = { display: visibility ? 'none' : '' }
+  const showWhenVisible = { display: visibility ? '' : 'none' }
 
-  render() {
-    const hideWhenVisible = { display: this.state.visible ? 'none' : '' }
-    const showWhenVisible = { display: this.state.visible ? '' : 'none' }
-
-    return (
-      <div>
-        <div style={hideWhenVisible}>
-          <Button variant="info" onClick={this.toggleVisibility}>{this.props.buttonLabel}</Button>
-        </div>
-        <div style={showWhenVisible}>
-          {this.props.children}
-          <Button size="sm" variant="info" onClick={this.toggleVisibility}>hide</Button>
-        </div>
+  return (
+    <div>
+      <div style={hideWhenVisible}>
+        <Button
+          color='#00adb5'
+          handleClick={toggleVisibility}
+        >
+          {props.buttonLabel}
+          </Button>
       </div>
-    )
-  }
-}
+      <div style={showWhenVisible}>
+        {props.children}
+        <Button
+          color='#393e46'
+          handleClick={toggleVisibility}
+        >
+           close 
+            </Button>
+      </div>
+    </div>
+  )
+})
 
 export default Togglable

@@ -9,10 +9,10 @@ const getRandom = () => {
 }
 
 const getRandomWithName = (first, last) => {
-    const url = urlRandom + '?lastName=' + last + '&firstName=' + first + '&escape=javascript'
-   
-    
-    const request = axios.get(url)
+    // const url = urlRandom + '?lastName=' + last + '&firstName=' + first + '&escape=javascript'
+    const urlName = `${urlRandom}?lastName=${last}&firstName=${first}&escape=javascript`
+
+    const request = axios.get(urlName)
 
     return request.then(response => response.data)
 }
