@@ -11,4 +11,4 @@ This project is served with Docker container in Heroku and is running in address
 https://legends-norris.herokuapp.com/
 
 ## With Docker
-You can also copy Dockerfile from the repository and automate the cloning process.
+You can also copy Dockerfile_dev_env from the repository and automate the cloning process.
