@@ -5,7 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 A application that randomly selects jokes about Chuck Norris. It is also posssible to substitute arbitrary name to replace Chuck Norris.
 
-<h2>on the internet</h2>
-This project is published in Heroku and is running in address:
+## On the internet
+This project is served with Docker container in Heroku and is running in address:
 
-https://wisdom-chuck-norris.herokuapp.com/
+https://legends-norris.herokuapp.com/
+
+## With Docker
+You can also copy Dockerfile from the repository and automate the cloning process.
